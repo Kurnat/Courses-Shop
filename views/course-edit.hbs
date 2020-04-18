@@ -1,0 +1,35 @@
+<h2>Edit course {{course.title}}</h2>
+
+<form action="/courses/edit" method="POST" class="course-form">
+    {{!-- input name --}}
+    <div class="input-field col s6">
+        <input id="title" name="title" type="text" class="validate" required value="{{course.title}}">
+        <label for="title">Course Name</label>
+        <span class="helper-text" data-error="Write name"></span>
+    </div>
+    {{!-- input price --}}
+    <div class="input-field col s6">
+        <input id="price" name="price" type="text" class="validate" required min="1" value="{{course.price}}">
+        <label for="price">Course price</label>
+        <span class="helper-text" data-error="Write prise"></span>
+    </div>
+    {{!-- input URL image --}}
+    <div class="input-field col s6">
+        <input id="img" name="img" type="text" class="validate" required value="{{course.img}}">
+        <label for="img">URL image</label>
+        <span class="helper-text" data-error="Write URL image"></span>
+    </div>
+    {{!-- id input --}}
+    <input type="hidden" name="id" value="{{course._id}}">
+
+    {{!-- csrf --}}
+    <input type="hidden" name="_csrf" value="{{csrf}}">
+    <button type="submit" class="btn btn-primary">Edit course</button>
+</form>
+
+<form action="/courses/remove" method="POST">
+    {{!-- csrf --}}
+    <input type="hidden" name="_csrf" value="{{csrf}}">
+    <input type="hidden" name="id" value="{{course._id}}">
+    <button class="btn red">Remove Course</button>
+</form>
