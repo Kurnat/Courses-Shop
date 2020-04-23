@@ -26,7 +26,10 @@ const userSchema = new Schema({
                 require: true
             }
         }]
-    }
+    },
+    resetToken: String,
+    resetTokenExp: Date,
+    avatarUrl: String
 })
 
 userSchema.methods.addToCard = function (course) {
